@@ -7,7 +7,7 @@
 script = ExtResource("1_0os08")
 
 [node name="PanelContainer" parent="." instance=ExtResource("2_xaeuq")]
-offset_left = -352.0
-offset_top = -200.0
-offset_right = 333.0
-offset_bottom = 195.0
+offset_left = -344.0
+offset_top = -120.0
+offset_right = 344.0
+offset_bottom = 96.0

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://08ocnkq7r5jv"]
+[gd_scene load_steps=6 format=3 uid="uid://08ocnkq7r5jv"]
 
 [ext_resource type="Script" path="res://gui/workspace_title.gd" id="1_67upp"]
+[ext_resource type="PackedScene" uid="uid://08u4u4usl32i" path="res://gui/workspace_slot.tscn" id="2_6qyjn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x88ft"]
 bg_color = Color(0.12549, 0.12549, 0.12549, 1)
@@ -32,8 +33,8 @@ corner_radius_top_left = 13
 corner_radius_top_right = 13
 
 [node name="PanelContainer" type="PanelContainer"]
-offset_right = 685.0
-offset_bottom = 395.0
+offset_right = 688.0
+offset_bottom = 216.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_x88ft")
 
 [node name="Panel" type="Panel" parent="."]
@@ -42,7 +43,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_4x4md")
 
 [node name="Panel2" type="Panel" parent="Panel"]
 layout_mode = 2
-offset_right = 685.0
+offset_right = 688.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xmi77")
 script = ExtResource("1_67upp")
@@ -55,3 +56,21 @@ offset_right = 675.0
 offset_bottom = 38.0
 text = "natsu's forest"
 vertical_alignment = 1
+
+[node name="workspace_slot" parent="Panel" instance=ExtResource("2_6qyjn")]
+position = Vector2(64, 128)
+
+[node name="workspace_slot3" parent="Panel" instance=ExtResource("2_6qyjn")]
+position = Vector2(176, 128)
+
+[node name="workspace_slot5" parent="Panel" instance=ExtResource("2_6qyjn")]
+position = Vector2(288, 128)
+
+[node name="workspace_slot6" parent="Panel" instance=ExtResource("2_6qyjn")]
+position = Vector2(400, 128)
+
+[node name="workspace_slot4" parent="Panel" instance=ExtResource("2_6qyjn")]
+position = Vector2(512, 128)
+
+[node name="workspace_slot2" parent="Panel" instance=ExtResource("2_6qyjn")]
+position = Vector2(624, 128)

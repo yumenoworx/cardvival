@@ -57,13 +57,13 @@ offset_bottom = 648.0
 color = Color(0.0156863, 0.0156863, 0.0156863, 1)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color(0.12549, 0.12549, 0.12549, 1)
 position = Vector2(568, -144)
-amount = 12
 lifetime = 1.3
 texture = ExtResource("2_lpc5q")
 emission_shape = 3
 emission_rect_extents = Vector2(500, 1)
-color = Color(1, 1, 1, 0.2)
+scale_amount_max = 1.3
 
 [node name="Label" type="Label" parent="."]
 offset_right = 1152.0

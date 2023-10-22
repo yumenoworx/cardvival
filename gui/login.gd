@@ -35,6 +35,7 @@ func _on_login_button_down():
 func _on_close_button_down():
 	$AnimationPlayer.play_backwards("enable")
 
+
 func _http_request_completed(result, response_code, headers, body):
 	body = JSON.parse_string(body.get_string_from_utf8())
 	if body and not "error" in body.keys():
@@ -52,8 +53,10 @@ func _http_request_completed(result, response_code, headers, body):
 			var error = $Label/AnimationPlayer.get_animation("error") as Animation
 			error.track_set_key_value(2, 0, body["error"])
 			$Label/AnimationPlayer.play("error")
+			return
 		else:
 			$Label/AnimationPlayer.play("connection_error")
+			return
 	completed = true
 	$Login.disabled = false
 

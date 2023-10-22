@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://08u4u4usl32i"]
+[gd_scene load_steps=3 format=3 uid="uid://08u4u4usl32i"]
+
+[ext_resource type="Texture2D" uid="uid://dud7514jlx1v2" path="res://multiplayer/подложка.svg" id="1_vdphs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fblhu"]
 
 [node name="workspace_slot" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vdphs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fblhu")
