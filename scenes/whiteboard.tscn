@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://e2hby8nqxe7u"]
+
+[ext_resource type="Script" path="res://scenes/whiteboard.gd" id="1_0os08"]
+[ext_resource type="PackedScene" uid="uid://08ocnkq7r5jv" path="res://gui/workspace.tscn" id="2_xaeuq"]
+
+[node name="WhiteBoard" type="Camera2D"]
+script = ExtResource("1_0os08")
+
+[node name="PanelContainer" parent="." instance=ExtResource("2_xaeuq")]
+offset_left = -352.0
+offset_top = -200.0
+offset_right = 333.0
+offset_bottom = 195.0

@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://08ocnkq7r5jv"]
+
+[ext_resource type="Script" path="res://gui/workspace_title.gd" id="1_67upp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x88ft"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4x4md"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmi77"]
+bg_color = Color(0.172549, 0.172549, 0.172549, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 685.0
+offset_bottom = 395.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x88ft")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4x4md")
+
+[node name="Panel2" type="Panel" parent="Panel"]
+layout_mode = 2
+offset_right = 685.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xmi77")
+script = ExtResource("1_67upp")
+
+[node name="Label" type="Label" parent="Panel/Panel2"]
+layout_mode = 2
+offset_left = 63.0
+offset_top = 2.0
+offset_right = 675.0
+offset_bottom = 38.0
+text = "natsu's forest"
+vertical_alignment = 1
