@@ -12,7 +12,8 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "hide":
 		queue_free()
 	elif anim_name == "loading":
-		if not Me.me and not get_parent().get_node("auth"):
+		var auth_window = get_parent().get_node("auth")
+		if not Me.me and not auth_window:
 			$Label/AnimationPlayer.play("loading")
 		else:
 			move_to_front()

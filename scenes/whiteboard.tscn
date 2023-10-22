@@ -1,13 +1,75 @@
-[gd_scene load_steps=3 format=3 uid="uid://e2hby8nqxe7u"]
+[gd_scene load_steps=7 format=3 uid="uid://e2hby8nqxe7u"]
 
 [ext_resource type="Script" path="res://scenes/whiteboard.gd" id="1_0os08"]
+[ext_resource type="Script" path="res://scenes/whiteboard_container.gd" id="1_o1obe"]
 [ext_resource type="PackedScene" uid="uid://08ocnkq7r5jv" path="res://gui/workspace.tscn" id="2_xaeuq"]
+[ext_resource type="Script" path="res://scenes/whiteboard_camera.gd" id="4_r0nhe"]
+[ext_resource type="Script" path="res://scenes/cursor.gd" id="5_5el2d"]
 
-[node name="WhiteBoard" type="Camera2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h24vq"]
+size = Vector2(10, 10)
+
+[node name="SubViewportContainer" type="SubViewportContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_o1obe")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+physics_object_picking = true
+size = Vector2i(2000, 2000)
+size_2d_override = Vector2i(2000, 2000)
+size_2d_override_stretch = true
+render_target_update_mode = 4
 script = ExtResource("1_0os08")
 
-[node name="PanelContainer" parent="." instance=ExtResource("2_xaeuq")]
+[node name="PanelContainer" parent="SubViewport" instance=ExtResource("2_xaeuq")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -344.0
-offset_top = -120.0
+offset_top = -108.0
 offset_right = 344.0
-offset_bottom = 96.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="SubViewport/PanelContainer"]
+
+[node name="PanelContainer2" parent="SubViewport" instance=ExtResource("2_xaeuq")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.0
+offset_top = 500.0
+offset_right = 376.0
+offset_bottom = 716.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="SubViewport/PanelContainer2"]
+
+[node name="Cursor" type="Area2D" parent="SubViewport"]
+script = ExtResource("5_5el2d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Cursor"]
+position = Vector2(59, 27)
+shape = SubResource("RectangleShape2D_h24vq")
+
+[node name="Camera2D" type="Camera2D" parent="SubViewport"]
+position = Vector2(1000, 1000)
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 13.0
+script = ExtResource("4_r0nhe")

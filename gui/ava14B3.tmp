@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://dffc8iyo2ig7w"]
+
+[ext_resource type="Shader" path="res://gui/avatar.gdshader" id="1_q7mvc"]
+[ext_resource type="Texture2D" uid="uid://bojdioo8avie0" path="res://icon.svg" id="2_1ckh0"]
+[ext_resource type="Script" path="res://gui/avatar.gd" id="3_kxkxn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_44hcx"]
+shader = ExtResource("1_q7mvc")
+shader_parameter/tex = ExtResource("2_1ckh0")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7whh"]
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+
+[node name="Avatar" type="Panel"]
+material = SubResource("ShaderMaterial_44hcx")
+offset_right = 128.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_w7whh")
+script = ExtResource("3_kxkxn")

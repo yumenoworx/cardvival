@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://08ocnkq7r5jv"]
+[gd_scene load_steps=9 format=3 uid="uid://08ocnkq7r5jv"]
 
 [ext_resource type="Script" path="res://gui/workspace_title.gd" id="1_67upp"]
 [ext_resource type="PackedScene" uid="uid://08u4u4usl32i" path="res://gui/workspace_slot.tscn" id="2_6qyjn"]
@@ -33,6 +33,22 @@ border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 13
 corner_radius_top_right = 13
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3dsg"]
+draw_center = false
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.435294, 0.27451, 1, 1)
+corner_radius_top_left = 19
+corner_radius_top_right = 19
+corner_radius_bottom_right = 19
+corner_radius_bottom_left = 19
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhqh8"]
 size = Vector2(688, 216)
 
@@ -61,6 +77,13 @@ offset_bottom = 38.0
 text = "natsu's forest"
 vertical_alignment = 1
 
+[node name="Active" type="Panel" parent="Panel"]
+visible = false
+layout_mode = 2
+offset_right = 688.0
+offset_bottom = 216.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_w3dsg")
+
 [node name="workspace_slot" parent="Panel" instance=ExtResource("2_6qyjn")]
 position = Vector2(64, 128)
 
@@ -83,12 +106,11 @@ position = Vector2(624, 128)
 script = ExtResource("3_cyy2o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(344, 108)
 shape = SubResource("RectangleShape2D_nhqh8")
 
 [node name="Timer" type="Timer" parent="Area2D"]
 
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
-[connection signal="mouse_entered" from="Area2D" to="Area2D" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="Area2D" method="_on_mouse_exited"]
 [connection signal="timeout" from="Area2D/Timer" to="Area2D" method="_on_timer_timeout"]

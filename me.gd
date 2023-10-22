@@ -1,6 +1,7 @@
 extends Node
 
 var me = null
+var interacts_with = null
 
 
 func _ready():

@@ -1,159 +1,25 @@
-[gd_scene load_steps=14 format=3 uid="uid://dp6yfnl0doxo6"]
+[gd_scene load_steps=5 format=3 uid="uid://dp6yfnl0doxo6"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_hnduw"]
 [ext_resource type="PackedScene" uid="uid://e2hby8nqxe7u" path="res://scenes/whiteboard.tscn" id="2_gxllc"]
 [ext_resource type="PackedScene" uid="uid://b6fvovbsfh0ab" path="res://gui/me.tscn" id="3_jqlem"]
-[ext_resource type="Script" path="res://tools/warning.gd" id="4_2aexn"]
-[ext_resource type="Texture2D" uid="uid://un3sidwkp5qn" path="res://waving_hand.png" id="5_klp4j"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwk36"]
-bg_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_wrlkb"]
-font_size = 34
-
-[sub_resource type="LabelSettings" id="LabelSettings_0fqav"]
-line_spacing = 16.0
-
-[sub_resource type="Animation" id="Animation_h4dam"]
-resource_name = "flying"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(456, 496), Vector2(456, 497), Vector2(456, 496), Vector2(456, 495)]
-}
-
-[sub_resource type="Animation" id="Animation_tq40p"]
-resource_name = "lgbt_light"
-length = 1.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 0.25098, 0.270588, 1), Color(0.996078, 0.619608, 0.243137, 1), Color(0.886275, 0.886275, 0.137255, 1), Color(0, 0.980392, 0.356863, 1), Color(0.443137, 0.92549, 1, 1), Color(0, 0.580392, 0.72549, 1), Color(1, 0.278431, 0.996078, 1), Color(1, 0.25098, 0.270588, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yu7f3"]
-_data = {
-"flying": SubResource("Animation_h4dam"),
-"lgbt_light": SubResource("Animation_tq40p")
-}
-
-[sub_resource type="Animation" id="Animation_qd6x5"]
-resource_name = "hide"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(0.554785, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 768)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lbinv"]
-_data = {
-"hide": SubResource("Animation_qd6x5")
-}
+[ext_resource type="Script" path="res://scenes/camera_controller.gd" id="4_aca2j"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_hnduw")
 
-[node name="WhiteBoard" parent="." instance=ExtResource("2_gxllc")]
-position = Vector2(-608, 336)
+[node name="Workspace" parent="." instance=ExtResource("2_gxllc")]
+offset_right = 2000.0
+offset_bottom = 2000.0
 
-[node name="PanelContainer" parent="." instance=ExtResource("3_jqlem")]
-offset_left = 128.0
-offset_top = 16.0
-offset_right = 1024.0
-offset_bottom = 80.0
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1000, 1000)
+script = ExtResource("4_aca2j")
 
-[node name="Panel" type="Panel" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_jwk36")
-script = ExtResource("4_2aexn")
-
-[node name="Sprite2D" type="Sprite2D" parent="Panel"]
-modulate = Color(1, 1, 1, 0.101961)
-position = Vector2(576, 320)
-scale = Vector2(3.2, 3.2)
-texture = ExtResource("5_klp4j")
-
-[node name="ShaderGlobalsOverride" type="ShaderGlobalsOverride" parent="Panel/Sprite2D"]
-
-[node name="Label" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 128.0
-offset_top = 64.0
-offset_right = 1024.0
-offset_bottom = 128.0
-text = "Обрати внимание!"
-label_settings = SubResource("LabelSettings_wrlkb")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 152.0
-offset_right = 1088.0
-offset_bottom = 568.0
-text = "Игра находится на ранней стадии разработки, будет значительно улучшена на её релизе. Строить выводы о том, хорошая будет игра или нет на выходе сейчас явно не стоит :)
-
-Все ошибки рано или поздно будут исправлены - разработчик игры такой же человек, как и ты - может уставать и выгорать в процессе работы! Если ты нашёл какую-то ошибку, смело сообщай о ней в комментариях под постами в Telegram канале разработчика (@natsunokaze)!
-
-Буду рад, если мой проект тебе понравится. Приятной игры!"
-label_settings = SubResource("LabelSettings_0fqav")
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Button" type="Button" parent="Panel"]
-modulate = Color(1, 0.25098, 0.270588, 1)
-layout_mode = 0
-offset_left = 456.0
-offset_top = 496.0
-offset_right = 696.0
-offset_bottom = 536.0
-toggle_mode = true
-text = "ПОН"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Button"]
-libraries = {
-"": SubResource("AnimationLibrary_yu7f3")
-}
-
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="Panel/Button"]
-libraries = {
-"": SubResource("AnimationLibrary_yu7f3")
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel"]
-libraries = {
-"": SubResource("AnimationLibrary_lbinv")
-}
-
-[node name="Camera2D" type="Camera2D" parent="Panel"]
-position = Vector2(568, 320)
-
-[connection signal="button_down" from="Panel/Button" to="Panel" method="_on_button_button_down"]
-[connection signal="animation_finished" from="Panel/Button/AnimationPlayer" to="Panel" method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="Panel/Button/AnimationPlayer2" to="Panel" method="_on_animation_player_animation_finished"]
+[node name="PanelContainer" parent="Camera2D" instance=ExtResource("3_jqlem")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -86.5
+offset_right = 86.5
+offset_bottom = 26.0
