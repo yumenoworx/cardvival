@@ -1,0 +1,286 @@
+[gd_scene load_steps=25 format=3 uid="uid://dxem46g7htsuy"]
+
+[ext_resource type="Script" path="res://game/settings.gd" id="1_eurqs"]
+[ext_resource type="FontVariation" uid="uid://ci33yel2tpnjl" path="res://fonts/main.tres" id="2_jjpx3"]
+[ext_resource type="Script" path="res://game/new_color.gd" id="2_q43lq"]
+[ext_resource type="Script" path="res://game/NewNickname.gd" id="3_nn4tc"]
+[ext_resource type="Script" path="res://game/LogOut.gd" id="4_usnxm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_27g5y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4d5q"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0mpo"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8auwk"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_rtsqx"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_2p4wt"]
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h82ay"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gc4j"]
+bg_color = Color(0.266667, 0.266667, 0.266667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pgl5k"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.247059, 0.247059, 0.247059, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uc7o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_453lk"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70gsr"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.14902, 0.14902, 0.14902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eifrt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ol4k"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whjbo"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[sub_resource type="Theme" id="Theme_d8fbk"]
+Button/font_sizes/font_size = 24
+Button/styles/normal = SubResource("StyleBoxFlat_7ol4k")
+Label/font_sizes/font_size = 24
+LineEdit/font_sizes/font_size = 24
+LineEdit/fonts/font = ExtResource("2_jjpx3")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_whjbo")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gmg8"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i8xfp"]
+font_size = 24
+font_color = Color(1, 1, 1, 0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_whf3f"]
+font_size = 24
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eurqs")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+material = SubResource("ShaderMaterial_27g5y")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l4d5q")
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g0mpo")
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/PanelContainer/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_8auwk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "===== Your account ====="
+label_settings = SubResource("LabelSettings_rtsqx")
+horizontal_alignment = 1
+
+[node name="Nickname" type="VBoxContainer" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ChangeNickname" type="HBoxContainer" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Nickname"]
+layout_mode = 2
+alignment = 1
+
+[node name="Nickname" type="Label" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Nickname/ChangeNickname"]
+layout_mode = 2
+text = "Nickname         "
+label_settings = SubResource("LabelSettings_2p4wt")
+
+[node name="NewNickname" type="Button" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Nickname/ChangeNickname"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_h82ay")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8gc4j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pgl5k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8uc7o")
+text = "Change"
+script = ExtResource("3_nn4tc")
+
+[node name="Nickname" type="LineEdit" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Nickname"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_453lk")
+theme_override_styles/focus = SubResource("StyleBoxFlat_70gsr")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_eifrt")
+
+[node name="NicknameColor" type="VBoxContainer" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Nickname"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Nickname/NicknameColor"]
+layout_mode = 2
+alignment = 1
+
+[node name="Nickname" type="Label" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Nickname/NicknameColor/HBoxContainer"]
+layout_mode = 2
+text = "Nickname color   "
+label_settings = SubResource("LabelSettings_2p4wt")
+
+[node name="Color" type="Button" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Nickname/NicknameColor/HBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_h82ay")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8gc4j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pgl5k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8uc7o")
+text = "Change"
+script = ExtResource("2_q43lq")
+
+[node name="ColorPicker" type="ColorPicker" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Nickname/NicknameColor"]
+visible = false
+layout_mode = 2
+theme = SubResource("Theme_d8fbk")
+theme_override_constants/margin = 0
+theme_override_constants/label_width = 0
+alignment = 1
+edit_alpha = false
+sampler_visible = false
+color_modes_visible = false
+sliders_visible = false
+presets_visible = false
+
+[node name="LogOut" type="Button" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_4gmg8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8gc4j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pgl5k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8uc7o")
+text = "Log out"
+script = ExtResource("4_usnxm")
+
+[node name="Sounds" type="VBoxContainer" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Sounds"]
+layout_mode = 2
+text = "======== Sounds ========"
+label_settings = SubResource("LabelSettings_rtsqx")
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Sounds"]
+layout_mode = 2
+text = "Coming soon..."
+label_settings = SubResource("LabelSettings_i8xfp")
+horizontal_alignment = 1
+
+[node name="Graphics" type="VBoxContainer" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Graphics"]
+layout_mode = 2
+text = "======= Graphics ======="
+label_settings = SubResource("LabelSettings_rtsqx")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Graphics"]
+layout_mode = 2
+text = "Coming soon..."
+label_settings = SubResource("LabelSettings_i8xfp")
+horizontal_alignment = 1
+
+[node name="PasswordL2" type="Label" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = " "
+label_settings = SubResource("LabelSettings_whf3f")
+
+[node name="SaveChanges" type="Button" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_4gmg8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8gc4j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pgl5k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8uc7o")
+text = "Save changes"
+
+[node name="Quit" type="Button" parent="PanelContainer/PanelContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_4gmg8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8gc4j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pgl5k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8uc7o")
+text = "   Quit   "
+
+[connection signal="button_down" from="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Nickname/ChangeNickname/NewNickname" to="." method="_on_new_nickname_button_down"]
+[connection signal="button_down" from="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Nickname/ChangeNickname/NewNickname" to="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Nickname/ChangeNickname/NewNickname" method="_on_button_down"]
+[connection signal="text_changed" from="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Nickname/Nickname" to="." method="_on_nickname_text_changed"]
+[connection signal="button_down" from="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Nickname/NicknameColor/HBoxContainer/Color" to="." method="_on_color_button_down"]
+[connection signal="button_down" from="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Nickname/NicknameColor/HBoxContainer/Color" to="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Nickname/NicknameColor/HBoxContainer/Color" method="_on_button_down"]
+[connection signal="color_changed" from="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Nickname/NicknameColor/ColorPicker" to="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Nickname/NicknameColor/HBoxContainer/Color" method="_on_color_picker_color_changed"]
+[connection signal="button_down" from="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/LogOut" to="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/LogOut" method="_on_button_down"]
+[connection signal="button_down" from="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/SaveChanges" to="." method="_on_save_changes_button_down"]
+[connection signal="button_down" from="PanelContainer/PanelContainer/CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_button_down"]

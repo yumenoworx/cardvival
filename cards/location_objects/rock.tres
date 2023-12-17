@@ -1,0 +1,6 @@
+[gd_resource type="AnimatedTexture" load_steps=2 format=3 uid="uid://c7rdg7042gva3"]
+
+[ext_resource type="Texture2D" uid="uid://c253ardtfn78" path="res://cards/location_objects/rock/rock.png" id="1_qofsg"]
+
+[resource]
+frame_0/texture = ExtResource("1_qofsg")

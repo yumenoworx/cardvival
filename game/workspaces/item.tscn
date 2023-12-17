@@ -1,0 +1,136 @@
+[gd_scene load_steps=12 format=3 uid="uid://4lgr58veu8fv"]
+
+[ext_resource type="Script" path="res://game/workspaces/item.gd" id="1_cywi7"]
+[ext_resource type="Texture2D" uid="uid://b42ckhnj7ml7o" path="res://cards/tools/axe.png" id="2_acv4h"]
+[ext_resource type="Script" path="res://addons/radial_progress/RadialProgress.gd" id="3_fucyj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_py6p6"]
+size = Vector2(56, 80)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nlwmy"]
+
+[sub_resource type="Animation" id="Animation_5ipku"]
+resource_name = "cooldown"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 0.666),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f1t51"]
+_data = {
+"cooldown": SubResource("Animation_5ipku")
+}
+
+[sub_resource type="Animation" id="Animation_t0i0s"]
+resource_name = "hide"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qur2r"]
+resource_name = "on_mouse_entered"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.333, 0.666),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -11)]
+}
+
+[sub_resource type="Animation" id="Animation_qrs3j"]
+resource_name = "on_ready"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.333, 0.666),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m1m8t"]
+_data = {
+"hide": SubResource("Animation_t0i0s"),
+"on_mouse_entered": SubResource("Animation_qur2r"),
+"on_ready": SubResource("Animation_qrs3j")
+}
+
+[node name="Slot" type="Area2D"]
+script = ExtResource("1_cywi7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_acv4h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_py6p6")
+
+[node name="RadialProgress" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_nlwmy")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_fucyj")
+radius = 10.0
+progress = 50.0
+thickness = 2.0
+bg_color = Color(1, 1, 1, 0)
+bar_color = Color(0, 0, 0, 0.596078)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RadialProgress"]
+libraries = {
+"": SubResource("AnimationLibrary_f1t51")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m1m8t")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

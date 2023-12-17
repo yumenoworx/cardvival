@@ -1,0 +1,148 @@
+[gd_scene load_steps=14 format=3 uid="uid://b51he6t2deql5"]
+
+[ext_resource type="PackedScene" uid="uid://bliic3ojogicq" path="res://game/user_info/info.tscn" id="1_7aodj"]
+[ext_resource type="PackedScene" uid="uid://coniit6koryma" path="res://game/workspaces/workspace.tscn" id="2_3k8fj"]
+[ext_resource type="Script" path="res://game/WorkspaceList.gd" id="3_efh2f"]
+[ext_resource type="Script" path="res://game/Label2.gd" id="4_wo5to"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hntil"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+expand_margin_top = 2.0
+expand_margin_right = 1.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjrie"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.14902, 0.14902, 0.14902, 1)
+border_color = Color(1, 1, 1, 1)
+expand_margin_top = 2.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tw18k"]
+expand_margin_top = 2.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6xb5k"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+expand_margin_left = 3.0
+expand_margin_top = 2.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0gww"]
+bg_color = Color(0.266667, 0.266667, 0.266667, 1)
+expand_margin_left = 3.0
+expand_margin_top = 2.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqu6i"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.247059, 0.247059, 0.247059, 1)
+expand_margin_left = 3.0
+expand_margin_top = 2.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fk6tt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ae2ky"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_yipd1"]
+font_size = 24
+font_color = Color(1, 1, 1, 0.5)
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="QuickInfo" parent="." instance=ExtResource("1_7aodj")]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Workspace" parent="." instance=ExtResource("2_3k8fj")]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Search" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Email" type="LineEdit" parent="Search"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_hntil")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vjrie")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_tw18k")
+placeholder_text = "Search your location..."
+
+[node name="Auth" type="Button" parent="Search"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_6xb5k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e0gww")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qqu6i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fk6tt")
+text = "Search"
+
+[node name="WorkspaceList" type="VBoxContainer" parent="."]
+layout_mode = 2
+script = ExtResource("3_efh2f")
+
+[node name="End" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ThatsAll" type="Label" parent="End"]
+layout_mode = 2
+text = "=== That's all ==="
+label_settings = SubResource("LabelSettings_ae2ky")
+horizontal_alignment = 1
+
+[node name="GameInfo" type="Label" parent="End"]
+layout_mode = 2
+text = "Cardvival! [Alpha]"
+label_settings = SubResource("LabelSettings_yipd1")
+horizontal_alignment = 1
+
+[node name="YumeNoWorx" type="Label" parent="End"]
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "By @yumenoworx >.<"
+label_settings = SubResource("LabelSettings_yipd1")
+horizontal_alignment = 1
+script = ExtResource("4_wo5to")
+
+[node name="YukiHtml" type="Label" parent="End"]
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+text = "Powered by YukiHTML"
+label_settings = SubResource("LabelSettings_yipd1")
+horizontal_alignment = 1
+script = ExtResource("4_wo5to")
+
+[connection signal="button_down" from="Search/Auth" to="Search/Auth" method="_on_button_down"]
+[connection signal="gui_input" from="End/YumeNoWorx" to="End/YumeNoWorx" method="_on_gui_input"]
+[connection signal="gui_input" from="End/YukiHtml" to="End/YukiHtml" method="_on_gui_input"]

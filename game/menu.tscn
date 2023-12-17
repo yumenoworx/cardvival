@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcp3cp32gx3dc"]
+
+[ext_resource type="Texture2D" uid="uid://b5jcfsa87ads6" path="res://game/user_info/settings.png" id="1_havfa"]
+[ext_resource type="Texture2D" uid="uid://6o3cbj8cq1sw" path="res://game/user_info/avatar.png" id="2_yds68"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y7dxu"]
+
+[node name="PanelContainer" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_y7dxu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+text = "Settings"
+icon = ExtResource("1_havfa")
+flat = true
+alignment = 2
+
+[node name="Button2" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+text = "Me"
+icon = ExtResource("2_yds68")
+flat = true
+alignment = 2

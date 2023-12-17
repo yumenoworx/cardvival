@@ -1,0 +1,197 @@
+[gd_scene load_steps=18 format=3 uid="uid://jil1oajk2uo"]
+
+[ext_resource type="Script" path="res://window/error/error.gd" id="1_b7csu"]
+[ext_resource type="Shader" path="res://shaders/blur.gdshader" id="2_o28x2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u4e0h"]
+shader = ExtResource("2_o28x2")
+shader_parameter/blur_amount = 5.0
+shader_parameter/mix_amount = null
+shader_parameter/color_over = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpkyc"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4efcm"]
+content_margin_left = 12.0
+content_margin_top = 15.0
+content_margin_right = 12.0
+content_margin_bottom = 15.0
+bg_color = Color(0.12549, 0.12549, 0.12549, 0.823529)
+border_width_top = 3
+border_width_bottom = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_oc2qh"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_aiwoi"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_2yhrb"]
+font_size = 24
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p4k8k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d754"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vguas"]
+bg_color = Color(0.266667, 0.266667, 0.266667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tl4m8"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.247059, 0.247059, 0.247059, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j46ia"]
+
+[sub_resource type="Animation" id="Animation_v4k0f"]
+resource_name = "on_mouse_entered"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["Well.", "Well..", "Well...", "Well"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u4hdj"]
+_data = {
+"on_mouse_entered": SubResource("Animation_v4k0f")
+}
+
+[sub_resource type="Animation" id="Animation_pp3r1"]
+resource_name = "on_ready"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 0.666),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w5jxy"]
+_data = {
+"on_ready": SubResource("Animation_pp3r1")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+material = SubResource("ShaderMaterial_u4e0h")
+clip_contents = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -69.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wpkyc")
+script = ExtResource("1_b7csu")
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4efcm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "X_X"
+label_settings = SubResource("LabelSettings_oc2qh")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/PanelContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Description" type="Label" parent="PanelContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Trash
+"
+label_settings = SubResource("LabelSettings_aiwoi")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/PanelContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="PanelContainer/PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "<---------- What's new? ---------->"
+label_settings = SubResource("LabelSettings_2yhrb")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="PanelContainer/PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "+ Добавлена пися
++ Добавлена кака
++ Добавлена попа
+~ Исправлена писякакапопа
+- Удалена залупа
+"
+label_settings = SubResource("LabelSettings_2yhrb")
+
+[node name="OK" type="Button" parent="PanelContainer/PanelContainer/VBoxContainer"]
+material = SubResource("ShaderMaterial_p4k8k")
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_5d754")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vguas")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tl4m8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j46ia")
+text = "Well"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer/PanelContainer/VBoxContainer/OK"]
+libraries = {
+"": SubResource("AnimationLibrary_u4hdj")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_w5jxy")
+}
+
+[connection signal="gui_input" from="." to="PanelContainer" method="_on_control_gui_input"]
+[connection signal="button_down" from="PanelContainer/PanelContainer/VBoxContainer/OK" to="PanelContainer" method="_on_ok_button_down"]
+[connection signal="mouse_entered" from="PanelContainer/PanelContainer/VBoxContainer/OK" to="PanelContainer" method="_on_ok_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/PanelContainer/VBoxContainer/OK" to="PanelContainer" method="_on_ok_mouse_exited"]
+[connection signal="animation_finished" from="PanelContainer/PanelContainer/VBoxContainer/OK/AnimationPlayer" to="PanelContainer" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="PanelContainer/AnimationPlayer" to="PanelContainer" method="_on_animation_player_animation_finished"]

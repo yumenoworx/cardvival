@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://wyhovyf88n05"]
-
-[ext_resource type="Script" path="res://multiplayer/multiplayer.gd" id="1_o6gnh"]
-
-[node name="HTTPRequest" type="HTTPRequest"]
-script = ExtResource("1_o6gnh")
-
-[connection signal="request_completed" from="." to="." method="_on_request_completed"]

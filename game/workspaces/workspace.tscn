@@ -1,0 +1,236 @@
+[gd_scene load_steps=18 format=3 uid="uid://coniit6koryma"]
+
+[ext_resource type="Script" path="res://game/workspaces/back.gd" id="1_01puv"]
+[ext_resource type="Texture2D" uid="uid://dii2ih0ig71js" path="res://locations/forest/background.jpg" id="1_c8v7n"]
+[ext_resource type="Texture2D" uid="uid://b42ckhnj7ml7o" path="res://cards/tools/axe.png" id="1_moc8r"]
+[ext_resource type="PackedScene" uid="uid://7v7o3qtx56uv" path="res://game/workspaces/slot.tscn" id="1_xve2x"]
+[ext_resource type="Script" path="res://game/workspaces/dynamic_background.gd" id="2_5tgyb"]
+[ext_resource type="PackedScene" uid="uid://bliic3ojogicq" path="res://game/user_info/info.tscn" id="2_kj5nj"]
+[ext_resource type="PackedScene" uid="uid://ba0hja3rlslpf" path="res://game/workspaces/workspace_widget.tscn" id="2_u8303"]
+[ext_resource type="Shader" path="res://shaders/blur.gdshader" id="4_1eqmj"]
+[ext_resource type="Script" path="res://game/workspaces/inv_slots.gd" id="4_kvfp8"]
+[ext_resource type="Script" path="res://game/workspaces/Inventory.gd" id="4_u4iio"]
+[ext_resource type="PackedScene" uid="uid://wp6acsst6xky" path="res://home/garden/field.tscn" id="4_v6q1n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3mmy"]
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6yl38"]
+font_size = 24
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fi7bm"]
+shader = ExtResource("4_1eqmj")
+shader_parameter/blur_amount = 5.0
+shader_parameter/mix_amount = 0.5
+shader_parameter/color_over = Color(0.156863, 0.156863, 0.156863, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c00pu"]
+
+[sub_resource type="Animation" id="Animation_o8lua"]
+resource_name = "on_item_selected"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inventory:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gphov"]
+_data = {
+"on_item_selected": SubResource("Animation_o8lua")
+}
+
+[node name="PanelContainer" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3mmy")
+
+[node name="Workspace" type="Control" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Workspace"]
+modulate = Color(1, 1, 1, 0.145098)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_c8v7n")
+expand_mode = 4
+stretch_mode = 6
+flip_h = true
+script = ExtResource("2_5tgyb")
+
+[node name="LocationObjects" type="VBoxContainer" parent="Workspace"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Workspace/LocationObjects"]
+visible = false
+layout_mode = 2
+text = "Тут ничего нет..."
+label_settings = SubResource("LabelSettings_6yl38")
+horizontal_alignment = 1
+
+[node name="LocationObjectsField1" type="HBoxContainer" parent="Workspace/LocationObjects"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" parent="Workspace/LocationObjects/LocationObjectsField1" instance=ExtResource("1_xve2x")]
+layout_mode = 2
+metadata/id = 1
+
+[node name="Button2" parent="Workspace/LocationObjects/LocationObjectsField1" instance=ExtResource("1_xve2x")]
+layout_mode = 2
+metadata/id = 2
+
+[node name="Button3" parent="Workspace/LocationObjects/LocationObjectsField1" instance=ExtResource("1_xve2x")]
+layout_mode = 2
+disabled = true
+metadata/id = 3
+
+[node name="LocationObjectsField2" type="HBoxContainer" parent="Workspace/LocationObjects"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" parent="Workspace/LocationObjects/LocationObjectsField2" instance=ExtResource("1_xve2x")]
+layout_mode = 2
+metadata/id = 4
+
+[node name="Button2" parent="Workspace/LocationObjects/LocationObjectsField2" instance=ExtResource("1_xve2x")]
+layout_mode = 2
+keep_pressed_outside = true
+metadata/id = 5
+
+[node name="Button3" parent="Workspace/LocationObjects/LocationObjectsField2" instance=ExtResource("1_xve2x")]
+layout_mode = 2
+metadata/id = 6
+
+[node name="Cornfield" type="VBoxContainer" parent="Workspace/LocationObjects"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Field" parent="Workspace/LocationObjects/Cornfield" instance=ExtResource("4_v6q1n")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "биг поле для биг растениййййй
+биг поле для биг растениййййй
+биг поле для биг растениййййй
+биг поле для биг растениййййй
+биг поле для биг растениййййй
+биг поле для биг растениййййй
+биг поле для биг растениййййй
+биг поле для биг растениййййййййййййййййййййййййййййййййййй
+биг поле для биг растениййййййййййййййййййййййййййййййййййй
+биг поле для биг растениййййййййййййййййййййййййййййййййййй
+биг поле для биг растениййййййййййййййййййййййййййййййййййй
+биг поле для биг растениййййййййййййййййййййййййййййййййййй
+биг поле для биг растениййййййййййййййййййййййййййййййййййй
+биг поле для биг растенийййййййййййййййййййййййййййййййййййййййййййййййййййййй
+биг поле для биг растениййййййййййййййййййййййййййййййййййй
+биг поле для биг растениййййййййййййййййййййййййййййййййййй
+м
+биг поле для биг растенийййййййййййййййййййййййййййййййййй
+
+"
+
+[node name="Field2" parent="Workspace/LocationObjects/Cornfield" instance=ExtResource("4_v6q1n")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "биг поле для биг растениййййй
+биг поле для биг растениййййй
+биг поле для биг растениййййй
+биг поле для биг растениййййй
+биг поле для биг растениййййй
+биг поле для биг растениййййй
+биг поле для биг растениййййй
+биг поле для биг растениййййййййййййййййййййййййййййййййййй
+биг поле для биг растениййййййййййййййййййййййййййййййййййй
+биг поле для биг растениййййййййййййййййййййййййййййййййййй
+биг поле для биг растениййййййййййййййййййййййййййййййййййй
+биг поле для биг растениййййййййййййййййййййййййййййййййййй
+биг поле для биг растениййййййййййййййййййййййййййййййййййй
+биг поле для биг растенийййййййййййййййййййййййййййййййййййййййййййййййййййййй
+биг поле для биг растениййййййййййййййййййййййййййййййййййй
+биг поле для биг растениййййййййййййййййййййййййййййййййййй
+м
+биг поле для биг растенийййййййййййййййййййййййййййййййййй"
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Info" type="VBoxContainer" parent="GUI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 106.0
+grow_horizontal = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="PanelContainer2" parent="GUI/Info" instance=ExtResource("2_kj5nj")]
+layout_mode = 2
+
+[node name="PanelContainer" parent="GUI/Info" instance=ExtResource("2_u8303")]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="GUI/Info"]
+material = SubResource("ShaderMaterial_fi7bm")
+layout_mode = 2
+
+[node name="Button" type="Button" parent="GUI/Info/PanelContainer3"]
+material = SubResource("ShaderMaterial_c00pu")
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+text = "[Back]"
+flat = true
+script = ExtResource("1_01puv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.5)
+layout_mode = 2
+texture = ExtResource("1_moc8r")
+stretch_mode = 5
+
+[node name="Inventory" type="VBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+script = ExtResource("4_u4iio")
+
+[node name="Slots" type="HBoxContainer" parent="Inventory"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("4_kvfp8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Inventory"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_gphov")
+}
+
+[connection signal="button_down" from="GUI/Info/PanelContainer3/Button" to="GUI/Info/PanelContainer3/Button" method="_on_button_down"]

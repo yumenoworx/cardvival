@@ -1,0 +1,240 @@
+[gd_scene load_steps=42 format=3 uid="uid://bliic3ojogicq"]
+
+[ext_resource type="Shader" path="res://shaders/blur.gdshader" id="1_17loo"]
+[ext_resource type="Texture2D" uid="uid://6o3cbj8cq1sw" path="res://game/user_info/avatar.png" id="1_ocu2j"]
+[ext_resource type="Script" path="res://game/user_info/info.gd" id="1_xxx4f"]
+[ext_resource type="Texture2D" uid="uid://b5jcfsa87ads6" path="res://game/user_info/settings.png" id="2_56yvx"]
+[ext_resource type="Texture2D" uid="uid://dkw6qtn2nalkb" path="res://game/user_info/sign.png" id="3_0dqbd"]
+[ext_resource type="Texture2D" uid="uid://bd4m7dg0gn26h" path="res://game/user_info/coin/coin2.png" id="3_dr3du"]
+[ext_resource type="Texture2D" uid="uid://do154mxondpyn" path="res://game/user_info/coin/coin3.png" id="4_e3c2t"]
+[ext_resource type="Texture2D" uid="uid://b17wqy6chrego" path="res://game/user_info/coin/coin12.png" id="5_w7mgv"]
+[ext_resource type="Texture2D" uid="uid://sda0gvbrnbut" path="res://game/user_info/coin/coin13.png" id="6_xwv27"]
+[ext_resource type="Texture2D" uid="uid://mate6yp6muhb" path="res://game/user_info/coin/coin14.png" id="7_bk2hb"]
+[ext_resource type="Texture2D" uid="uid://bed7khiyvhoyx" path="res://game/user_info/coin/coin15.png" id="8_tgb2w"]
+[ext_resource type="Texture2D" uid="uid://bi4syyf48q17h" path="res://game/user_info/coin/coin16.png" id="9_bjqeq"]
+[ext_resource type="Texture2D" uid="uid://bh4i1nc6qbs2" path="res://game/user_info/coin/coin17.png" id="10_w6ct8"]
+[ext_resource type="Texture2D" uid="uid://03w0yv8hotgx" path="res://game/user_info/coin/coin18.png" id="11_1iuog"]
+[ext_resource type="Texture2D" uid="uid://ddsxg38js678c" path="res://game/user_info/coin/coin19.png" id="12_f23kb"]
+[ext_resource type="Texture2D" uid="uid://ki7p7bjj5c4y" path="res://game/user_info/coin/coin20.png" id="13_gql1m"]
+[ext_resource type="Texture2D" uid="uid://txrc4px3leob" path="res://game/user_info/coin/coin21.png" id="14_q3gm5"]
+[ext_resource type="Texture2D" uid="uid://cpp86nkq1khpi" path="res://game/user_info/coin/coin4.png" id="15_ekgpr"]
+[ext_resource type="Texture2D" uid="uid://sfq2kt5apu8s" path="res://game/user_info/coin/coin22.png" id="16_k5olg"]
+[ext_resource type="Texture2D" uid="uid://dmrkn44dahlbq" path="res://game/user_info/coin/coin23.png" id="17_6q0fb"]
+[ext_resource type="Texture2D" uid="uid://by2qby4qnthev" path="res://game/user_info/coin/coin24.png" id="18_q0fd1"]
+[ext_resource type="Texture2D" uid="uid://20u3rhamx1wl" path="res://game/user_info/coin/coin25.png" id="19_v6cjo"]
+[ext_resource type="Texture2D" uid="uid://bbfef4lmaug7c" path="res://game/user_info/coin/coin5.png" id="20_mcfn6"]
+[ext_resource type="Texture2D" uid="uid://l5tuj4yrncxm" path="res://game/user_info/coin/coin6.png" id="21_1hqqm"]
+[ext_resource type="Texture2D" uid="uid://02bbr52ug3r" path="res://game/user_info/coin/coin7.png" id="22_wta1v"]
+[ext_resource type="Texture2D" uid="uid://btr6l45ik8k4v" path="res://game/user_info/coin/coin8.png" id="23_7tkqp"]
+[ext_resource type="Texture2D" uid="uid://by44vk5avfflx" path="res://game/user_info/coin/coin9.png" id="24_w8ehb"]
+[ext_resource type="Texture2D" uid="uid://ci3tmdoi03gvo" path="res://game/user_info/coin/coin10.png" id="25_bbo5g"]
+[ext_resource type="Texture2D" uid="uid://cvvcrmyxmoi0" path="res://game/user_info/coin/coin11.png" id="26_lkr7v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_88q7v"]
+shader = ExtResource("1_17loo")
+shader_parameter/blur_amount = 5.0
+shader_parameter/mix_amount = 0.97
+shader_parameter/color_over = Color(0.156863, 0.156863, 0.156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3as6"]
+content_margin_top = 7.0
+content_margin_bottom = 7.0
+draw_center = false
+border_width_top = 3
+border_width_bottom = 3
+border_color = Color(0.894118, 0.894118, 0.894118, 1)
+expand_margin_bottom = 3.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_exy2y"]
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0en2a"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1jst"]
+content_margin_right = 2.0
+draw_center = false
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_1s5vm"]
+frames = 24
+speed_scale = 10.0
+frame_0/texture = ExtResource("3_dr3du")
+frame_1/texture = ExtResource("4_e3c2t")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("15_ekgpr")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("20_mcfn6")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("21_1hqqm")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("22_wta1v")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("23_7tkqp")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("24_w8ehb")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("25_bbo5g")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("26_lkr7v")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("5_w7mgv")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("6_xwv27")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("7_bk2hb")
+frame_12/duration = 1.0
+frame_13/texture = ExtResource("8_tgb2w")
+frame_13/duration = 1.0
+frame_14/texture = ExtResource("9_bjqeq")
+frame_14/duration = 1.0
+frame_15/texture = ExtResource("10_w6ct8")
+frame_15/duration = 1.0
+frame_16/texture = ExtResource("11_1iuog")
+frame_16/duration = 1.0
+frame_17/texture = ExtResource("12_f23kb")
+frame_17/duration = 1.0
+frame_18/texture = ExtResource("13_gql1m")
+frame_18/duration = 1.0
+frame_19/texture = ExtResource("14_q3gm5")
+frame_19/duration = 1.0
+frame_20/texture = ExtResource("16_k5olg")
+frame_20/duration = 1.0
+frame_21/texture = ExtResource("17_6q0fb")
+frame_21/duration = 1.0
+frame_22/texture = ExtResource("18_q0fd1")
+frame_22/duration = 1.0
+frame_23/texture = ExtResource("19_v6cjo")
+frame_23/duration = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_gy5wd"]
+font_size = 24
+font_color = Color(0.972549, 0.772549, 0.227451, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ky1jh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3iokd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cyl3s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bavhi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kynkt"]
+
+[node name="PanelContainer" type="PanelContainer"]
+material = SubResource("ShaderMaterial_88q7v")
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 60.0
+grow_horizontal = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s3as6")
+script = ExtResource("1_xxx4f")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_ocu2j")
+expand_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Nickname" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Nickname" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/Nickname"]
+layout_mode = 2
+text = "???"
+label_settings = SubResource("LabelSettings_exy2y")
+
+[node name="Sign" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/Nickname"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_0dqbd")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ID" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/Nickname"]
+visible = false
+modulate = Color(1, 1, 1, 0.329412)
+layout_mode = 2
+text = "(ID: ???)"
+label_settings = SubResource("LabelSettings_exy2y")
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/Nickname"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0en2a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/Nickname/PanelContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/Nickname/PanelContainer/HBoxContainer"]
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Role" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer/Nickname/PanelContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_g1jst")
+text = "Role"
+flat = true
+
+[node name="VBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Level" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0.5)
+layout_mode = 2
+text = "Level 1"
+label_settings = SubResource("LabelSettings_exy2y")
+
+[node name="Coin" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 16
+texture = SubResource("AnimatedTexture_1s5vm")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/Coin"]
+position = Vector2(-269, -33)
+
+[node name="Timer" type="Timer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/Coin"]
+
+[node name="Gold" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "???"
+label_settings = SubResource("LabelSettings_gy5wd")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PanelContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ky1jh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3iokd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cyl3s")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bavhi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kynkt")
+text = "     "
+icon = ExtResource("2_56yvx")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="gui_input" from="PanelContainer/HBoxContainer/TextureRect" to="PanelContainer" method="_on_texture_rect_gui_input"]
+[connection signal="gui_input" from="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/Coin" to="PanelContainer" method="_on_coin_gui_input"]

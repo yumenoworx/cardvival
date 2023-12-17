@@ -1,0 +1,312 @@
+[gd_scene load_steps=20 format=3 uid="uid://c223fu53fjeaf"]
+
+[ext_resource type="Texture2D" uid="uid://6o3cbj8cq1sw" path="res://game/user_info/avatar.png" id="1_46qjb"]
+[ext_resource type="Texture2D" uid="uid://dkw6qtn2nalkb" path="res://game/user_info/sign.png" id="2_ypugs"]
+[ext_resource type="Texture2D" uid="uid://ba0tm4djmg50v" path="res://cards/resources/log.png" id="3_3x8c5"]
+[ext_resource type="Texture2D" uid="uid://bq1anycllkevx" path="res://online/roles/textures/coin.png" id="4_d5pb7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1sj3l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wyh1h"]
+font_size = 36
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0edyw"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ca7vo"]
+content_margin_right = 2.0
+draw_center = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_i7v0y"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_w1c2h"]
+font_size = 24
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ioo6m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdthc"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxeot"]
+bg_color = Color(0.266667, 0.266667, 0.266667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_il4bp"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.247059, 0.247059, 0.247059, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lfae1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pupxy"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+border_width_top = 3
+border_width_bottom = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_wg57n"]
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_upobg"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+border_width_bottom = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_flxdh"]
+font_size = 24
+
+[node name="Profile" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1sj3l")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(104, 104)
+layout_mode = 2
+texture = ExtResource("1_46qjb")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer2/VBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("1_46qjb")
+expand_mode = 3
+
+[node name="HSplitContainer" type="HSplitContainer" parent="PanelContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer2/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "yumenoworx"
+label_settings = SubResource("LabelSettings_wyh1h")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer2/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ypugs")
+expand_mode = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer2/VBoxContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0edyw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer2/VBoxContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="PanelContainer/VBoxContainer2/VBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Role" type="Button" parent="PanelContainer/VBoxContainer2/VBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_ca7vo")
+text = "Role"
+flat = true
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer2/VBoxContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0.5)
+layout_mode = 2
+text = "Level 1"
+label_settings = SubResource("LabelSettings_i7v0y")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer2"]
+modulate = Color(1, 1, 1, 0.5)
+layout_mode = 2
+text = "\"Stop posting about Cardvival!\""
+label_settings = SubResource("LabelSettings_w1c2h")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Actions" type="HBoxContainer" parent="PanelContainer/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Message" type="Button" parent="PanelContainer/VBoxContainer2/Actions"]
+material = SubResource("ShaderMaterial_ioo6m")
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_gdthc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pxeot")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_il4bp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lfae1")
+text = "Message"
+
+[node name="Message2" type="Button" parent="PanelContainer/VBoxContainer2/Actions"]
+material = SubResource("ShaderMaterial_ioo6m")
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_gdthc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pxeot")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_il4bp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lfae1")
+text = "Add to friends"
+
+[node name="Message3" type="Button" parent="PanelContainer/VBoxContainer2/Actions"]
+material = SubResource("ShaderMaterial_ioo6m")
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_gdthc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pxeot")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_il4bp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lfae1")
+text = "Report"
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Friends
+0"
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pupxy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer2/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "About me:"
+label_settings = SubResource("LabelSettings_wg57n")
+horizontal_alignment = 1
+
+[node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer/VBoxContainer2/PanelContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "лооооооол вот такой профиль у игрока сможет быть. ставьте лайки, подписывайтесь на меня, всем пока!"
+label_settings = SubResource("LabelSettings_wg57n")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_upobg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer2/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer2/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Stats:"
+label_settings = SubResource("LabelSettings_wg57n")
+horizontal_alignment = 1
+
+[node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer/VBoxContainer2/PanelContainer2/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer2/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer2/PanelContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer2/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_3x8c5")
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer2/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Добыто ресурсов"
+label_settings = SubResource("LabelSettings_wg57n")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer2/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "69"
+label_settings = SubResource("LabelSettings_wg57n")
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/VBoxContainer2/PanelContainer2/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/VBoxContainer2/PanelContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer2/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_d5pb7")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer2/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Монет заработано"
+label_settings = SubResource("LabelSettings_wg57n")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer2/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "69"
+label_settings = SubResource("LabelSettings_wg57n")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "ID: 1"
+label_settings = SubResource("LabelSettings_flxdh")
+horizontal_alignment = 1
+vertical_alignment = 1

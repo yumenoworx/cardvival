@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhs85cdg42dyp"]
+
+[ext_resource type="Script" path="res://console/console.gd" id="1_mttxn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0qm3"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+expand_margin_top = 2.0
+expand_margin_right = 1.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wtlj4"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.14902, 0.14902, 0.14902, 1)
+border_color = Color(1, 1, 1, 1)
+expand_margin_top = 2.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyc6a"]
+expand_margin_top = 2.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12y3x"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+expand_margin_left = 3.0
+expand_margin_top = 2.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4dtl"]
+bg_color = Color(0.266667, 0.266667, 0.266667, 1)
+expand_margin_left = 3.0
+expand_margin_top = 2.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_53gqi"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.247059, 0.247059, 0.247059, 1)
+expand_margin_left = 3.0
+expand_margin_top = 2.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5s353"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="InputLine" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_h0qm3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wtlj4")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_kyc6a")
+placeholder_text = "Enter the command..."
+
+[node name="Enter" type="Button" parent="."]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_12y3x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t4dtl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_53gqi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5s353")
+text = "Search"
+script = ExtResource("1_mttxn")
+
+[connection signal="text_changed" from="InputLine" to="Enter" method="_on_input_line_text_changed"]
+[connection signal="button_down" from="Enter" to="Enter" method="_on_button_down"]

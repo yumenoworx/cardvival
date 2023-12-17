@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://7v7o3qtx56uv"]
+
+[ext_resource type="Script" path="res://game/workspaces/slot.gd" id="1_i15js"]
+[ext_resource type="Texture2D" uid="uid://cgjfr5073tna0" path="res://cards/location_objects/tree.tres" id="1_my1ij"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_py6p6"]
+size = Vector2(112, 160)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lopqp"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aokqd"]
+
+[sub_resource type="Animation" id="Animation_jn25w"]
+resource_name = "take_damage"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.333, 1),
+"update": 0,
+"values": [0.0, 50.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nddum"]
+_data = {
+"take_damage": SubResource("Animation_jn25w")
+}
+
+[node name="Button" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 106.0
+offset_bottom = 134.0
+theme_override_font_sizes/font_size = 14
+text = "by yumenoworx
+by yumenoworx
+by yumenoworxxx
+by yumenoworx
+by yumenoworx
+by yumenoworx
+by yumenoworx
+by yumenoworx
+by yumenoworx
+by yumenoworx
+by yumenoworx"
+script = ExtResource("1_i15js")
+
+[node name="Slot" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Slot"]
+position = Vector2(56, 80)
+scale = Vector2(2, 2)
+texture = ExtResource("1_my1ij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot"]
+position = Vector2(56, 80)
+shape = SubResource("RectangleShape2D_py6p6")
+
+[node name="ProgressBar" type="ProgressBar" parent="Slot"]
+offset_top = 161.0
+offset_right = 112.0
+offset_bottom = 165.0
+theme_override_styles/background = SubResource("StyleBoxFlat_lopqp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_aokqd")
+allow_lesser = true
+show_percentage = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slot/ProgressBar"]
+libraries = {
+"": SubResource("AnimationLibrary_nddum")
+}
+
+[connection signal="animation_finished" from="Slot/ProgressBar/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,0 +1,246 @@
+[gd_scene load_steps=22 format=3 uid="uid://bou6848hy2yo4"]
+
+[ext_resource type="Texture2D" uid="uid://cmhqhi3ldvn" path="res://game/user_info/background.png" id="1_fhnu0"]
+[ext_resource type="Script" path="res://online/auth/auth.gd" id="2_2x511"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8r6r"]
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aaeki"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+draw_center = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axjk0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1c3yx"]
+draw_center = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g3k2l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_se4km"]
+
+[sub_resource type="Animation" id="Animation_qf561"]
+resource_name = "on_hi_pressed"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1.11, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.411765, 0.988235, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ugj82"]
+_data = {
+"on_hi_pressed": SubResource("Animation_qf561")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_fefwe"]
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8wfl"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8lcn"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.14902, 0.14902, 0.14902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ms07d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3088x"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nd7gb"]
+bg_color = Color(0.266667, 0.266667, 0.266667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcwb6"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.247059, 0.247059, 0.247059, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w26bb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jjvny"]
+font_size = 24
+
+[sub_resource type="Animation" id="Animation_m1n8t"]
+resource_name = "on_auth_completed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_53f23"]
+_data = {
+"on_auth_completed": SubResource("Animation_m1n8t")
+}
+
+[node name="PanelContainer" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j8r6r")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.17)
+layout_mode = 2
+texture = ExtResource("1_fhnu0")
+stretch_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 16
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_aaeki")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_axjk0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1c3yx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_g3k2l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_se4km")
+text = "       Hi!      "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CenterContainer/VBoxContainer/Label"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/VBoxContainer/Label"]
+libraries = {
+"": SubResource("AnimationLibrary_ugj82")
+}
+
+[node name="PasswordL3" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = " "
+label_settings = SubResource("LabelSettings_fefwe")
+
+[node name="EmailL" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Email"
+label_settings = SubResource("LabelSettings_fefwe")
+
+[node name="Email" type="LineEdit" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_f8wfl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_f8lcn")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_ms07d")
+placeholder_text = "yumenoworx@gmail.com"
+virtual_keyboard_type = 5
+
+[node name="NicknameL" type="Label" parent="CenterContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Nickname"
+label_settings = SubResource("LabelSettings_fefwe")
+
+[node name="Nickname" type="LineEdit" parent="CenterContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_f8wfl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_f8lcn")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_ms07d")
+placeholder_text = "yumenoworx"
+
+[node name="PasswordL" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Password"
+label_settings = SubResource("LabelSettings_fefwe")
+
+[node name="Password" type="LineEdit" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_f8wfl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_f8lcn")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_ms07d")
+placeholder_text = "12345678"
+virtual_keyboard_type = 6
+secret = true
+
+[node name="PasswordL2" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = " "
+label_settings = SubResource("LabelSettings_fefwe")
+
+[node name="Auth" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_3088x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nd7gb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vcwb6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w26bb")
+text = "Sign in"
+script = ExtResource("2_2x511")
+
+[node name="Alt" type="Button" parent="CenterContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0.5)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_aaeki")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_axjk0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1c3yx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_g3k2l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_se4km")
+text = "Start your journey"
+
+[node name="Loading" type="Label" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+text = "Trying to get data from the server
+..."
+label_settings = SubResource("LabelSettings_jjvny")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_53f23")
+}
+
+[connection signal="button_down" from="CenterContainer/VBoxContainer/Label" to="CenterContainer/VBoxContainer/Auth" method="_on_label_button_down"]
+[connection signal="button_down" from="CenterContainer/VBoxContainer/Auth" to="CenterContainer/VBoxContainer/Auth" method="_on_button_down"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Alt" to="CenterContainer/VBoxContainer/Auth" method="_on_alt_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="CenterContainer/VBoxContainer/Auth" method="_on_animation_player_animation_finished"]
